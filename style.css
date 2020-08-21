@@ -85,6 +85,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  --light0: #fad6d7;
   --light1: #fd979a;
   --light2: #c85457;
   --dark1: #6b0b11;
@@ -127,6 +128,9 @@ h3 {
 ul {
   list-style: none;
 }
+li:hover {
+  animation: itemsHover 0.5s ease-in forwards;
+}
 main {
   /* background-color: orange; */
   width: 90%;
@@ -152,7 +156,8 @@ section:first-child {
 section:last-child {
   padding-left: 10px;
 }
-/* Left column */
+
+/******************* Left column *******************/
 #grid-floats {
   /* padding-right: 10px; */
 }
@@ -162,7 +167,8 @@ section:last-child {
 #grid-floats li:nth-child(even) img {
   float: right;
 }
-/* Right column */
+
+/********************* Right column **********************/
 #grid-flex {
 }
 .grid-item {
@@ -173,7 +179,18 @@ section:last-child {
 img {
   width: 200px;
 }
-/* Small screens */
+
+/*************** Description of animation *****************/
+@keyframes itemsHover {
+  from {
+    background-color: white;
+  }
+  to {
+    background-color: var(--light0);
+  }
+}
+
+/*************** Small screens ****************/
 @media screen and (max-width: 600px) {
   header {
     height: 70px;
@@ -205,7 +222,7 @@ img {
     margin-bottom: 10px;
   }
 }
-/* Medium screens */
+/***************** Medium screens *********************/
 @media screen and (min-width: 600px) and (max-width: 1024px) {
   header {
     height: 80px;
@@ -217,7 +234,7 @@ img {
     letter-spacing: 0.2rem;
   }
 }
-/* Large screens */
+/******************** Large screens ***********************/
 @media screen and (min-width: 1024px) {
   header {
     height: 100px;
