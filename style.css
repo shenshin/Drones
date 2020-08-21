@@ -167,7 +167,8 @@ section:last-child {
 #grid-floats li:nth-child(even) img {
   float: right;
 }
-
+/* #frid-floats p::after {
+  content: '<div style="clear: both"></div>'; */
 /********************* Right column **********************/
 #grid-flex {
 }
@@ -178,6 +179,7 @@ section:last-child {
 /* Изменить размеры картинок на проценты */
 img {
   width: 200px;
+  /* transition: 0.5s linear; */
 }
 
 /*************** Description of animation *****************/
@@ -220,6 +222,7 @@ img {
     float: none;
     width: 100%;
     margin-bottom: 10px;
+    transition: 0.5s linear;
   }
 }
 /***************** Medium screens *********************/
