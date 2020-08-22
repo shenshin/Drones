@@ -104,18 +104,17 @@ body {
   font-weight: 400;
 }
 header {
-  background-color: var(--medium);
-  color: white;
-  width: 90%;
-  margin: auto;
   display: flex;
   align-items: center; /* Align vertically */
   justify-content: center; /* Horizontally */
+
+  width: 90%;
+  margin: auto;
+  margin-bottom: 5px;
+
+  background-color: var(--medium);
   font-size: 2.5vmax;
   letter-spacing: 0.5rem;
-  /* box-sizing: content-box;
-  border-bottom: 5px solid greenyellow; */
-  margin-bottom: 5px;
 }
 h1,
 h2,
@@ -123,20 +122,34 @@ h3 {
   font-family: 'Russo One';
   color: var(--dark2);
 }
+section h2 {
+  background-color: var(--dark1);
+  color: var(--light1);
+  letter-spacing: 0.2rem;
+  padding-left: 10%;
+  margin-bottom: 5px;
+}
 h3 {
   font-size: 1rem;
   letter-spacing: 0.05rem;
 }
-ul {
+
+/* Page contents container */
+main {
+  width: 90%;
+  margin: auto;
+}
+
+/* Contents items */
+.grid-item {
   list-style: none;
-}
-.grid-item {
   border: 1px solid var(--body);
-}
-.grid-item {
   padding: 10px;
   background-color: white;
 }
+
+/* Scales items to indicate to the user that they're 
+looking at that specific drone */
 .grid-item:hover {
   animation: itemsHover 0.2s ease-in forwards;
 }
@@ -150,42 +163,25 @@ ul {
   }
 }
 
-main {
-  /* background-color: orange; */
-  width: 90%;
-  margin: auto;
-  display: flex;
-}
-/* section {
-  background-color: greenyellow;
-} */
-section h2 {
-  background-color: var(--dark1);
-  color: var(--light1);
-  letter-spacing: 0.2rem;
-  padding-left: 10%;
-}
-
-/******************* Left column *******************/
-#grid-floats {
+/******************* Left & Right columns *******************/
+#grid-floats,
+#grid-flex {
   display: grid;
 }
+
+/* Arranging elements of the left 'floats' column */
 #grid-floats li:nth-child(odd) img {
   float: left;
 }
 #grid-floats li:nth-child(even) img {
   float: right;
 }
-/* #frid-floats p::after {
+/* #grid-floats p::after {
   content: '<div style="clear: both"></div>'; */
-/********************* Right column **********************/
-#grid-flex {
-  display: grid;
-}
 
-/* Изменить размеры картинок на проценты */
+/* TODO: do smth with img width */
 img {
-  width: 200px;
+  width: 50%;
   /* transition: 0.5s linear; */
 }
 
@@ -193,7 +189,6 @@ img {
 @media screen and (max-width: 600px) {
   header {
     height: 70px;
-    border-bottom: 3px solid whitesmoke;
   }
   section h2 {
     height: 30px;
@@ -201,11 +196,13 @@ img {
     line-height: 30px;
     letter-spacing: 0.2rem;
   }
-  main {
-    flex-direction: column;
+  #grid-floats,
+  #grid-flex {
+    grid-template-columns: 100%;
+    row-gap: 5px;
   }
   #grid-floats {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
 
   img {
@@ -226,11 +223,33 @@ img {
     line-height: 30px;
     letter-spacing: 0.2rem;
   }
+  #grid-floats {
+    margin-bottom: 20px;
+  }
+  #grid-floats,
+  #grid-flex {
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 4px;
+  }
+  /* Set default width of grid elements to 3fr */
+  .grid-item {
+    grid-column: span 3;
+  }
+  /* Starting from the third element set an element's
+  width to 2fr */
+  .grid-item:nth-child(n + 3) {
+    grid-column: span 2;
+  }
 }
 /******************** Large screens ***********************/
 @media screen and (min-width: 1024px) {
   header {
     height: 100px;
+  }
+  /* To display #grid-floats and #grid-flex next to
+  each other (not one above(below) another) I use flex in a row */
+  main {
+    display: flex;
   }
   section h2 {
     height: 40px;
@@ -248,8 +267,7 @@ img {
   #grid-floats,
   #grid-flex {
     grid-template-columns: 1fr 1fr;
-    column-gap: 4px;
-    row-gap: 4px;
+    grid-gap: 4px;
   }
   .grid-item:first-child {
     grid-column: span 2;
