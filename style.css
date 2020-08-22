@@ -73,7 +73,7 @@ h3 {
   color: var(--dark2);
 }
 img {
-  width: 60%;
+  width: 100%;
 }
 /* Headers for two Sections */
 section h2 {
@@ -124,42 +124,11 @@ looking at that specific drone */
   display: grid;
 }
 
-/****** Arranging elements of the 'floats' column *****/
-#grid-floats img {
-  margin-top: 10px;
-}
-#grid-floats p {
-  padding-top: 10px;
-}
-#grid-floats .grid-item:nth-child(odd) img {
-  float: left;
-  margin-right: 5px;
-}
-#grid-floats .grid-item:nth-child(even) img {
-  float: right;
-  margin-left: 5px;
-}
-#grid-floats .grid-item::after {
-  content: '';
-  clear: both;
-}
-
-/***** Arranging elements of the 'floats' column *****/
+/***** Arranging elements of the 'flex' column *****/
 
 #grid-flex .grid-item {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: flex-start;
-}
-#grid-flex .grid-item h3 {
-  width: 100%;
-}
-#grid-flex .grid-item img {
-  width: 50%;
-}
-#grid-flex .grid-item p {
-  width: 50%;
+  flex-direction: column;
 }
 
 /*************** Small screens ****************/
@@ -248,5 +217,61 @@ looking at that specific drone */
   }
   .grid-item:first-child {
     grid-column: span 2;
+  }
+
+  /****** Arranging elements of the 'floats' column *****/
+  #grid-floats img {
+    width: 50%;
+    margin-top: 10px;
+  }
+  #grid-floats p {
+    padding-top: 10px;
+  }
+  #grid-floats .grid-item:nth-child(odd) img {
+    float: left;
+    margin-right: 5px;
+  }
+  #grid-floats .grid-item:nth-child(even) img {
+    float: right;
+    margin-left: 5px;
+  }
+  #grid-floats .grid-item::after {
+    content: '';
+    clear: both;
+  }
+
+  /***** Arranging elements of the 'flex' column *****/
+
+  /* #grid-flex .grid-item {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  #grid-flex .grid-item h3 {
+    width: 100%;
+  }
+  #grid-flex .grid-item img {
+    width: 50%;
+  }
+  #grid-flex .grid-item p {
+    width: 50%;
+  } */
+
+  /***** Arranging elements of the 'flex' column with Grid *****/
+  #grid-flex .grid-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+  }
+  #grid-flex .grid-item h3 {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+  }
+  #grid-flex .grid-item img {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+  #grid-flex .grid-item p {
+    grid-column: 2 / span 3;
   }
 }
