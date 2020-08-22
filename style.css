@@ -1,20 +1,7 @@
 /* for the header */
 @font-face {
   font-family: 'Russo One';
-  src: url('fonts/Russo_One/RussoOne-Regular.ttf');
-}
-/* 'Black' style */
-@font-face {
-  font-family: 'Roboto';
-  src: url('./fonts/Roboto/Roboto-Black.ttf');
-  font-weight: 900;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Roboto';
-  src: url('./fonts/Roboto/Roboto-BlackItalic.ttf');
-  font-weight: 900;
-  font-style: italic;
+  src: url('./fonts/Russo_One/RussoOne-Regular.ttf');
 }
 /* Bold */
 @font-face {
@@ -27,19 +14,6 @@
   font-family: 'Roboto';
   src: url('./fonts/Roboto/Roboto-BoldItalic.ttf');
   font-weight: 700;
-  font-style: italic;
-}
-/* Medium */
-@font-face {
-  font-family: 'Roboto';
-  src: url('./fonts/Roboto/Roboto-Medium.ttf');
-  font-weight: 500;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Roboto';
-  src: url('./fonts/Roboto/Roboto-MediumItalic.ttf');
-  font-weight: 500;
   font-style: italic;
 }
 /* Regular */
@@ -55,32 +29,7 @@
   font-weight: 400;
   font-style: italic;
 }
-/* Light */
-@font-face {
-  font-family: 'Roboto';
-  src: url('./fonts/Roboto/Roboto-Light.ttf');
-  font-weight: 300;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Roboto';
-  src: url('./fonts/Roboto/Roboto-LightItalic.ttf');
-  font-weight: 300;
-  font-style: italic;
-}
-/* Thin */
-@font-face {
-  font-family: 'Roboto';
-  src: url('./fonts/Roboto/Roboto-Thin.ttf');
-  font-weight: 100;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Roboto';
-  src: url('./fonts/Roboto/Roboto-ThinItalic.ttf');
-  font-weight: 100;
-  font-style: italic;
-}
+
 * {
   padding: 0;
   margin: 0;
@@ -196,6 +145,22 @@ looking at that specific drone */
 }
 
 /***** Arranging elements of the 'floats' column *****/
+
+#grid-flex .grid-item {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+#grid-flex .grid-item h3 {
+  width: 100%;
+}
+#grid-flex .grid-item img {
+  width: 50%;
+}
+#grid-flex .grid-item p {
+  width: 50%;
+}
 
 /*************** Small screens ****************/
 @media screen and (max-width: 600px) {
