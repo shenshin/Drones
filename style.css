@@ -3,7 +3,7 @@
   font-family: 'Russo One';
   src: url('fonts/Russo_One/RussoOne-Regular.ttf');
 }
-/* Black */
+/* 'Black' style */
 @font-face {
   font-family: 'Roboto';
   src: url('./fonts/Roboto/Roboto-Black.ttf');
@@ -103,6 +103,7 @@ body {
   font-family: 'Roboto', serif;
   font-weight: 400;
 }
+/* Main page header */
 header {
   display: flex;
   align-items: center; /* Align vertically */
@@ -122,6 +123,10 @@ h3 {
   font-family: 'Russo One';
   color: var(--dark2);
 }
+img {
+  width: 60%;
+}
+/* Headers for two Sections */
 section h2 {
   background-color: var(--dark1);
   color: var(--light1);
@@ -129,7 +134,8 @@ section h2 {
   padding-left: 10%;
   margin-bottom: 5px;
 }
-h3 {
+/* Headers for articles (grid-item) */
+.grid-item h3 {
   font-size: 1rem;
   letter-spacing: 0.05rem;
 }
@@ -140,7 +146,7 @@ main {
   margin: auto;
 }
 
-/* Contents items */
+/* Articles */
 .grid-item {
   list-style: none;
   border: 1px solid var(--body);
@@ -148,12 +154,12 @@ main {
   background-color: white;
 }
 
-/* Scales items to indicate to the user that they're 
+/* Scales articles to indicate to the user that they're 
 looking at that specific drone */
 .grid-item:hover {
   animation: itemsHover 0.2s ease-in forwards;
 }
-/* *** Description of animation **** */
+/* *** Description of the animation **** */
 @keyframes itemsHover {
   0% {
     transform: scale(1, 1);
@@ -169,21 +175,27 @@ looking at that specific drone */
   display: grid;
 }
 
-/* Arranging elements of the left 'floats' column */
-#grid-floats li:nth-child(odd) img {
+/****** Arranging elements of the 'floats' column *****/
+#grid-floats img {
+  margin-top: 10px;
+}
+#grid-floats p {
+  padding-top: 10px;
+}
+#grid-floats .grid-item:nth-child(odd) img {
   float: left;
+  margin-right: 5px;
 }
-#grid-floats li:nth-child(even) img {
+#grid-floats .grid-item:nth-child(even) img {
   float: right;
+  margin-left: 5px;
 }
-/* #grid-floats p::after {
-  content: '<div style="clear: both"></div>'; */
+#grid-floats .grid-item::after {
+  content: '';
+  clear: both;
+}
 
-/* TODO: do smth with img width */
-img {
-  width: 50%;
-  /* transition: 0.5s linear; */
-}
+/***** Arranging elements of the 'floats' column *****/
 
 /*************** Small screens ****************/
 @media screen and (max-width: 600px) {
