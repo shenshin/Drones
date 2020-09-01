@@ -241,7 +241,7 @@ looking at that specific drone */
   }
   /* To display #grid-floats and #grid-flex next to
   each other (not one above(below) another) I use flex in a row */
-  main {
+  /* main {
     display: flex;
     flex-direction: row;
   }
@@ -253,30 +253,45 @@ looking at that specific drone */
   }
   section:first-child {
     flex-basis: 50%;
+    flex-shrink: 0;
+    flex-grow: 1;
     padding-right: 4px;
     border-right: 1px dotted var(--light1);
   }
   section:last-child {
     flex-basis: 50%;
+    flex-grow: 1;
+    flex-shrink: 0;
     padding-left: 4px;
-  }
-  #grid-floats,
-  #grid-flex {
-  }
-  /* Make first article two cells long */
-  .grid-item:first-child {
-  }
+  } */
   /********* Arranging floats elements ***********/
-  #grid-floats .grid-item:first-child img {
+  #grid-floats::after {
+    content: '';
+    clear: both;
+    display: block;
+  }
+  #grid-floats .grid-item {
+    float: left;
+    width: 25%;
+    height: 21vw;
+    font-size: 1.2vw;
+    overflow-y: hidden;
+    background-color: white;
+  }
+  #grid-floats .grid-item img {
     width: 50%;
   }
-  #grid-floats .grid-item:not(:first-child) img,
-  #grid-floats .grid-item:not(:first-child) p {
-    float: none;
-    width: 100%;
+
+  #grid-floats .grid-item:nth-child(1),
+  #grid-floats .grid-item:nth-child(2) {
+    width: 50%;
+    height: 20vw;
+    font-size: 1.5vw;
+    overflow: hidden;
   }
 
   /***** Arranging flex elements *****/
+
   /* For all articles except first */
   #grid-flex .grid-item:not(:first-child) {
     flex-direction: column;
