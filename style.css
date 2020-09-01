@@ -118,7 +118,6 @@ looking at that specific drone */
 /******************* Left & Right columns *******************/
 #grid-floats,
 #grid-flex {
-  display: grid;
 }
 
 #grid-floats img,
@@ -143,6 +142,7 @@ looking at that specific drone */
 #grid-floats .grid-item::after {
   content: '';
   clear: both;
+  display: table;
 }
 
 /***** Arranging elements of the 'flex' column *****/
@@ -180,8 +180,6 @@ looking at that specific drone */
   }
   #grid-floats,
   #grid-flex {
-    grid-template-columns: 100%;
-    row-gap: 5px;
   }
   #grid-floats {
     margin-bottom: 20px;
@@ -190,12 +188,6 @@ looking at that specific drone */
   #grid-floats img {
     width: 50%;
   }
-  /* img {
-    float: none;
-    width: 100%;
-    margin-bottom: 10px;
-    transition: 0.5s linear;
-  } */
 }
 /***************** Medium screens *********************/
 @media screen and (min-width: 600px) and (max-width: 1024px) {
@@ -213,17 +205,13 @@ looking at that specific drone */
   }
   #grid-floats,
   #grid-flex {
-    grid-template-columns: repeat(6, 1fr);
-    grid-gap: 4px;
   }
   /* Set default width of grid elements to 3fr */
   .grid-item {
-    grid-column: span 3;
   }
   /* Starting from the third element set an element's
   width to 2fr */
   .grid-item:nth-child(n + 3) {
-    grid-column: span 2;
   }
   /********* Arranging floats elements ***********/
 
@@ -274,12 +262,9 @@ looking at that specific drone */
   }
   #grid-floats,
   #grid-flex {
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 4px;
   }
   /* Make first article two cells long */
   .grid-item:first-child {
-    grid-column: span 2;
   }
   /********* Arranging floats elements ***********/
   #grid-floats .grid-item:first-child img {
