@@ -44,7 +44,7 @@
   --body: #363636;
 }
 html {
-  font-size: 1.2vw;
+  font-size: 1.2vmax;
 }
 body {
   background-color: var(--body);
@@ -52,13 +52,14 @@ body {
   font-family: 'Roboto', serif;
   font-weight: 400;
 }
+
 /* Main page header */
 header {
   width: 90%;
-  height: 17vw;
-  text-align: center;
-  line-height: 17vw;
   margin: auto;
+  height: 17vmax;
+  line-height: 17vmax;
+  text-align: center;
   background-color: var(--medium);
   font-size: 3rem;
   letter-spacing: 0.5rem;
@@ -98,11 +99,10 @@ looking at that specific drone */
 section h2 {
   margin-top: 0.5%;
 }
-
 /* ***************** sections headers ***************** */
 section h2 {
-  height: 4vw;
-  line-height: 4vw;
+  height: 6vmax;
+  line-height: 6vmax;
 
   background-color: var(--dark1);
   color: var(--light1);
@@ -113,7 +113,6 @@ section h2 {
 }
 /* *********** Articles and inner elements ********* */
 .grid-item {
-  /* width: 100%; */
   margin-top: 0.5%;
   list-style: none;
   border: 1px solid var(--body);
@@ -163,6 +162,13 @@ section h2 {
 
 /************************************** Small screens **************************************/
 @media screen and (max-width: 600px) {
+  header,
+  main {
+    width: 99%;
+  }
+  html {
+    font-size: 14px;
+  }
 }
 /************************************** Medium screens *************************************/
 @media screen and (min-width: 600px) and (max-width: 1024px) {
@@ -176,7 +182,7 @@ section h2 {
   }
   /********* Arranging floats elements ***********/
   #grid-floats .grid-item {
-    height: 24vw;
+    height: 27vmax;
     overflow-y: hidden;
   }
   #grid-floats .grid-item {
@@ -185,7 +191,7 @@ section h2 {
   #grid-floats .grid-item:nth-child(1),
   #grid-floats .grid-item:nth-child(2) {
     width: 49.75%;
-    height: 20vw;
+    height: 20vmax;
   }
 
   /***** Arranging flex elements *****/
@@ -211,7 +217,7 @@ section h2 {
   }
   /********* Arranging floats elements ***********/
   #grid-floats .grid-item {
-    height: 26vw;
+    height: 30vmax;
     overflow-y: hidden;
   }
   #grid-floats .grid-item {
@@ -220,7 +226,7 @@ section h2 {
   #grid-floats .grid-item:nth-child(1),
   #grid-floats .grid-item:nth-child(2) {
     width: 49.75%;
-    height: 20vw;
+    height: 20vmax;
   }
 
   /***** Arranging flex elements *****/
