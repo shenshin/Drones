@@ -44,7 +44,7 @@
   --body: #363636;
 }
 html {
-  font-size: 1vw;
+  font-size: 1.2vw;
 }
 body {
   background-color: var(--body);
@@ -56,23 +56,12 @@ body {
 header {
   width: 90%;
   height: 17vw;
+  text-align: center;
+  line-height: 17vw;
   margin: auto;
-
-  display: flex;
-  align-items: center; /* Align vertically */
-  justify-content: center; /* Horizontally */
-
   background-color: var(--medium);
   font-size: 3rem;
   letter-spacing: 0.5rem;
-}
-/* ********* Margins ********* */
-section {
-  margin-top: 0.5%;
-}
-#grid-floats,
-#grid-flex {
-  margin-top: 0.5%;
 }
 
 h1,
@@ -81,32 +70,11 @@ h3 {
   font-family: 'Russo One';
   color: var(--dark2);
 }
-/* Headers for two Sections */
-section h2 {
-  height: 3vw;
-  background-color: var(--dark1);
-  color: var(--light1);
-  letter-spacing: 0.2rem;
-  padding-left: 10%;
-}
-/* Headers for articles (grid-item) */
-.grid-item h3 {
-  font-size: 1.5rem;
-  letter-spacing: 0.05rem;
-}
 
 /* Page contents container */
 main {
   width: 90%;
   margin: auto;
-}
-
-/* Articles */
-.grid-item {
-  list-style: none;
-  border: 1px solid var(--body);
-  padding: 10px;
-  background-color: white;
 }
 
 /* Scales articles to indicate to the user that they're 
@@ -120,160 +88,122 @@ looking at that specific drone */
     transform: scale(1, 1);
   }
   100% {
-    transform: scale(1.04, 1.04);
+    transform: scale(1.02, 1.02);
   }
 }
 
-/******************* Left & Right columns *******************/
-#grid-floats,
-#grid-flex {
+/******************************** for all screen sizes **************************/
+
+/* ********* Margins ********* */
+section h2 {
+  margin: 0.5% 0;
 }
 
-#grid-floats img,
-#grid-flex img {
-  margin-top: 10px;
-}
-#grid-floats p,
-#grid-flex p {
-  padding-top: 10px;
-}
+/* ***************** sections headers ***************** */
+section h2 {
+  height: 4vw;
+  line-height: 4vw;
 
-/****** Arranging elements of the 'floats' column *****/
+  background-color: var(--dark1);
+  color: var(--light1);
+  letter-spacing: 0.2rem;
+  padding-left: 10%;
 
-#grid-floats .grid-item:nth-child(odd) img {
+  font-size: 2rem;
+}
+/* *********** Articles and inner elements ********* */
+.grid-item {
+  /* width: 100%; */
+  list-style: none;
+  border: 1px solid var(--body);
+  padding: 10px;
+  background-color: white;
+}
+.grid-item h3 {
+  font-size: 1.5rem;
+  letter-spacing: 0.05rem;
+}
+.grid-item p {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+}
+.grid-item img {
+  width: 50%;
+}
+.grid-item:nth-child(odd) img {
   float: left;
   margin-right: 5px;
 }
-#grid-floats .grid-item:nth-child(even) img {
+.grid-item:nth-child(even) img {
   float: right;
   margin-left: 5px;
 }
-#grid-floats .grid-item::after {
+.grid-item::after {
   content: '';
   clear: both;
-  display: table;
+  display: block;
+}
+/* ******************** Grid with floats ******************* */
+#grid-floats .grid-item {
+  float: left;
+}
+#grid-floats::after {
+  content: '';
+  clear: both;
+  display: block;
 }
 
-/***** Arranging elements of the 'flex' column *****/
-
-#grid-flex .grid-item {
+/* ******************** Grid with flex ******************* */
+#grid-flex {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-}
-#grid-flex .grid-item h3 {
-  width: 100%;
-}
-#grid-flex .grid-item img {
-  width: 50%;
-}
-#grid-flex .grid-item p {
-  width: 45%;
-}
-#grid-flex .grid-item:nth-child(even) img {
-  order: 1;
 }
 
-/*************** Small screens ****************/
+/************************************** Small screens **************************************/
 @media screen and (max-width: 600px) {
-  #grid-floats img {
-    width: 50%;
-  }
 }
-/***************** Medium screens *********************/
+/************************************** Medium screens *************************************/
 @media screen and (min-width: 600px) and (max-width: 1024px) {
-  section h2 {
-    height: 30px;
-    font-size: 1.2rem;
-    line-height: 30px;
-    letter-spacing: 0.2rem;
-  }
-  #grid-floats {
-    margin-bottom: 20px;
-  }
-  #grid-floats,
-  #grid-flex {
-  }
-  /* Set default width of grid elements to 3fr */
-  .grid-item {
-  }
-  /* Starting from the third element set an element's
-  width to 2fr */
-  .grid-item:nth-child(n + 3) {
-  }
-  /********* Arranging floats elements ***********/
-
-  /* On first 2 articles */
-  #grid-floats .grid-item img {
-    width: 50%;
-  }
-  /* Ont the rest articles */
-  #grid-floats .grid-item:nth-child(n + 3) img {
-    width: 100%;
-    float: none;
-  }
-
-  /********** Arranging flex elements ************/
-  #grid-flex .grid-item:nth-child(n + 3) {
-    flex-direction: column;
-  }
-  #grid-flex .grid-item:nth-child(n + 3) img,
-  #grid-flex .grid-item:nth-child(n + 3) p {
-    width: 100%;
-  }
 }
-/******************** Large screens ***********************/
+/**************************************** Large screens ***************************************/
 @media screen and (min-width: 1024px) {
-  /********* Arranging floats elements ***********/
-  #grid-floats::after {
-    content: '';
-    clear: both;
-    display: block;
-  }
-  #grid-floats .grid-item {
-    float: left;
-    width: 24.625%;
-    height: 21vw;
-    font-size: 1.2vw;
-    overflow-y: hidden;
-    background-color: white;
-  }
-  #grid-floats .grid-item img {
-    width: 50%;
-  }
-  #grid-floats .grid-item:nth-child(2n + 1) {
+  /* ********** Margins ************ */
+  .grid-item:nth-child(2n + 1) {
     margin: 0.5% 0.25% 0 0;
   }
-  #grid-floats .grid-item:nth-child(2n) {
+  .grid-item:nth-child(2n) {
     margin: 0.5% 0 0 0.25%;
   }
-  #grid-floats .grid-item:nth-child(4n) {
+  .grid-item:nth-child(4n) {
     margin-right: 0.5%;
   }
-  #grid-floats .grid-item:nth-child(1) {
+  .grid-item:nth-child(1) {
     margin: 0 0.25% 0 0;
   }
-  #grid-floats .grid-item:nth-child(2) {
+  .grid-item:nth-child(2) {
     margin: 0 0 0 0.25%;
+  }
+  /********* Arranging floats elements ***********/
+  #grid-floats .grid-item {
+    height: 26vw;
+    overflow-y: hidden;
+  }
+  #grid-floats .grid-item {
+    width: 24.625%;
   }
   #grid-floats .grid-item:nth-child(1),
   #grid-floats .grid-item:nth-child(2) {
     width: 49.75%;
     height: 20vw;
-    font-size: 1.5vw;
-    overflow: hidden;
   }
 
   /***** Arranging flex elements *****/
-
-  /* For all articles except first */
-  #grid-flex .grid-item:not(:first-child) {
-    flex-direction: column;
+  #grid-flex .grid-item {
+    flex-basis: 24.625%;
   }
-  #grid-flex .grid-item:not(:first-child) img,
-  #grid-flex .grid-item:not(:first-child) p {
-    width: 100%;
+  #grid-flex .grid-item:nth-child(1),
+  #grid-flex .grid-item:nth-child(2) {
+    flex-basis: 49.75%;
   }
 }
